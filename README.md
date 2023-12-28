@@ -1,2 +1,17 @@
 # 15112-tp-checkers
-This project is a classic implementation of newbie checkers along with features like single-player mode against AI opponents of varying difficulty, multiplayer mode, hints, the ability to undo moves, different themes, and background music.
+Project Name: Carnegie Checkers Battle
+
+Project Description: This is a classic implementation of the traditional Newbie 
+Checkers board game. It provides an interactive and enjoyable experience with 
+features such as chain captures, highlighting valid moves, single-player mode 
+against AI opponents of varying difficulties, multiplayer mode, AI-generated 
+hints, the ability to undo moves, different themes with themed background music,
+and a home button for easy navigation.
+
+How to Run the Project: Open and run the main.py file
+
+Additional Libraries: cmu_graphics
+
+Shortcut & Other Commands: 
+- Clicking on the Home button allows you to quit any game instantly
+- Pressing the 'h' key toggles the hint on and off (not really a shortcut)
