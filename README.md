@@ -10,7 +10,9 @@ and a home button for easy navigation.
 
 How to Run the Project: Open and run the main.py file
 
-Additional Libraries: cmu_graphics
+Additional Libraries: 
+- cmu-graphics (download via the following link: https://academy.cs.cmu.edu/desktop)
+
 
 Shortcut & Other Commands: 
 - Clicking on the Home button allows you to quit any game instantly
