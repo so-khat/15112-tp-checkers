@@ -49,8 +49,17 @@ def aiLevelSelectionScreen():
 
 def undoButton():
     # draw undo button
-    drawRect(562.5, 630, 75, 50, fill='yellow', border='black', align='center')
-    drawLabel('UNDO', 562.5, 630, size=18)
+    factor = 1 if not app.undoButtonHovered else 1.2
+    unhoveredColor = gradient('silver', 'slateGray', 'lightSlateGray', 
+                               'slateGray', 'silver', start='top')
+    hoveredColor = gradient('gold', 'orange', 'yellow', 
+                            'orange', 'gold', start='top')
+    drawRect(562.5, 635, 75*factor, 50*factor, 
+             fill=unhoveredColor if not app.undoButtonHovered else hoveredColor, 
+             border='black', 
+             borderWidth = 2 if not app.undoButtonHovered else 3, align='center')
+    drawLabel('UNDO', 562.5, 635, size=18*factor, 
+              bold = False if not app.undoButtonHovered else True)
  
 
 def rulesScreen():

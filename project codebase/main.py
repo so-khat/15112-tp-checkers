@@ -27,6 +27,7 @@ def onGameStart(app):
     app.volume = True
     app.homeButtonHovered = False
     app.volumeButtonHovered = False
+    app.undoButtonHovered = False
 
     # citation: refered to Images section under More CMU Graphics 
     # in the cmu_graphics documentation 
@@ -215,7 +216,7 @@ def onMousePress(app, mouseX, mouseY):
         if not app.gameOver:
             # if undo is possible and undo is clicked
             if app.checkersGame.checkersBoard.prevBoard != None:
-                if 500<=mouseX<=600 and 605<=mouseY<=655:
+                if 500<=mouseX<=600 and 610<=mouseY<=660:
                     app.checkersGame.undoMove()
             # get cell that was clicked
             cellRow, cellCol = getCellFromMousePress(app, mouseX, mouseY)
@@ -235,17 +236,24 @@ def onMousePress(app, mouseX, mouseY):
                     app.winner = app.checkersGame.noLegalMoves()
                     app.gameOver = True
 
+
 def onMouseMove(app, mouseX, mouseY):
-    # enlarge home button if hovered over by mouse
+    # enlarge home button when hovered over by mouse
     if 15<=mouseX<=85 and 15<=mouseY<=85: 
         app.homeButtonHovered = True
     else:
         app.homeButtonHovered = False
-    # enlarge volume button if hovered over by mouse
+    # enlarge volume button when hovered over by mouse
     if 620<=mouseX<=680 and 20<=mouseY<=80:
         app.volumeButtonHovered = True
     else:
         app.volumeButtonHovered = False
+    # enlarge undo button when hovered over by mouse
+    if app.gameStarted and not app.gameOver:
+        if 500<=mouseX<=600 and 610<=mouseY<=660:
+            app.undoButtonHovered = True
+        else:
+            app.undoButtonHovered = False
 
 
 def onKeyPress(app, key):

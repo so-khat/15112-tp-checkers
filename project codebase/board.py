@@ -116,11 +116,11 @@ class Board():
         piece.move(row, col)
         # check if a piece reaches the end of the board and becomes a king
         if piece.ownership == 1:
-            if row == 7:
+            if row == 0:
                 piece.makeKing()
                 self.P1kings += 1
         else:
-            if row == 0:
+            if row == 7:
                 piece.makeKing()
                 self.P2kings += 1
                 
