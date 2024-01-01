@@ -198,7 +198,7 @@ def homeButton(app):
 def volumeButton(app):
     # draw respective buttons for volume on and off
     imageWidth, imageHeight = getImageSize(app.volumeONIMG)
-    factor = 7 if not app.volumeButtonHovered else 6
+    factor = 7 if not app.volumeButtonHovered else 5.7
     if app.volume:
         drawImage(app.volumeONIMG, 650, 50, width=imageWidth/factor, 
                 height=imageHeight/factor, align='center')

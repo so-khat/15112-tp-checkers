@@ -26,6 +26,7 @@ def onGameStart(app):
     app.hintPieceCell = None
     app.volume = True
     app.homeButtonHovered = False
+    app.volumeButtonHovered = False
 
     # citation: refered to Images section under More CMU Graphics 
     # in the cmu_graphics documentation 
@@ -137,7 +138,6 @@ def onMousePress(app, mouseX, mouseY):
         app.hintCell = None
         app.hintPieceCell = None
         app.homeButtonHovered = False
-        app.volumeButtonHovered = False
         app.checkersGame = Game(app)
         changeTheme(app)
 
