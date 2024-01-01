@@ -25,6 +25,7 @@ def onGameStart(app):
     app.hintCell = None
     app.hintPieceCell = None
     app.volume = True
+    app.homeButtonHovered = False
 
     # citation: refered to Images section under More CMU Graphics 
     # in the cmu_graphics documentation 
@@ -135,6 +136,8 @@ def onMousePress(app, mouseX, mouseY):
         app.hint = False
         app.hintCell = None
         app.hintPieceCell = None
+        app.homeButtonHovered = False
+        app.volumeButtonHovered = False
         app.checkersGame = Game(app)
         changeTheme(app)
 
@@ -231,6 +234,18 @@ def onMousePress(app, mouseX, mouseY):
                 elif app.checkersGame.noLegalMoves() != None:
                     app.winner = app.checkersGame.noLegalMoves()
                     app.gameOver = True
+
+def onMouseMove(app, mouseX, mouseY):
+    # enlarge home button if hovered over by mouse
+    if 15<=mouseX<=85 and 15<=mouseY<=85: 
+        app.homeButtonHovered = True
+    else:
+        app.homeButtonHovered = False
+    # enlarge volume button if hovered over by mouse
+    if 620<=mouseX<=680 and 20<=mouseY<=80:
+        app.volumeButtonHovered = True
+    else:
+        app.volumeButtonHovered = False
 
 
 def onKeyPress(app, key):

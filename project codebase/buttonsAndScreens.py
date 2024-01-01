@@ -5,8 +5,8 @@ from PIL import Image
 def startScreen(app):
     # draw logo
     imageWidth, imageHeight = getImageSize(app.logoIMG)
-    drawImage(app.logoIMG, 340, 255, 
-              width=imageWidth/2.7, height=imageHeight/2.7, align='center')
+    drawImage(app.logoIMG, 340, 260, 
+              width=imageWidth/3, height=imageHeight/3, align='center')
 
     # draw Single Player Mode box
     drawRect(200, 500, 250, 100, fill='green', border='black', align='center')
@@ -50,7 +50,7 @@ def aiLevelSelectionScreen():
 def undoButton():
     # draw undo button
     drawRect(562.5, 630, 75, 50, fill='yellow', border='black', align='center')
-    drawLabel('UNDO', 562.5, 630, size=18, font='grenze')
+    drawLabel('UNDO', 562.5, 630, size=18)
  
 
 def rulesScreen():
@@ -190,16 +190,18 @@ def changeTheme(app):
 
 def homeButton(app):
     imageWidth, imageHeight = getImageSize(app.homeButtonIMG)
-    drawImage(app.homeButtonIMG, 50, 50, width=imageWidth/50, 
-              height=imageHeight/50, align='center')
+    factor = 50 if not app.homeButtonHovered else 40
+    drawImage(app.homeButtonIMG, 50, 50, width=imageWidth/factor, 
+              height=imageHeight/factor, align='center')
             
 
 def volumeButton(app):
     # draw respective buttons for volume on and off
     imageWidth, imageHeight = getImageSize(app.volumeONIMG)
+    factor = 7 if not app.volumeButtonHovered else 6
     if app.volume:
-        drawImage(app.volumeONIMG, 650, 50, width=imageWidth/7, 
-                height=imageHeight/7, align='center')
+        drawImage(app.volumeONIMG, 650, 50, width=imageWidth/factor, 
+                height=imageHeight/factor, align='center')
     else:
-        drawImage(app.volumeOFFIMG, 650, 50, width=imageWidth/7, 
-                height=imageHeight/7, align='center')
+        drawImage(app.volumeOFFIMG, 650, 50, width=imageWidth/factor, 
+                height=imageHeight/factor, align='center')
