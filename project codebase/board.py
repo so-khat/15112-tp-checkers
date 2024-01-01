@@ -39,14 +39,14 @@ class Board():
         for player in [1, 2]:
             if player == 1:
                 pieceNum = 0
-                for row in range(3):
+                for row in range(5, 8):
                     for col in range(self.cols):
                         if (row%2 == 0 and col%2 == 0) or (row%2 == 1 and col%2 == 1):
                             self.pieces[f'P{player}p{pieceNum}'] = Piece(app, player, row, col)
                             pieceNum += 1
             elif player == 2:
                 pieceNum = 0
-                for row in range(5, 8):
+                for row in range(3):
                     for col in range(self.cols):
                         if (row%2 == 0 and col%2 == 0) or (row%2 == 1 and col%2 == 1):
                             self.pieces[f'P{player}p{pieceNum}'] = Piece(app, player, row, col)
@@ -72,13 +72,13 @@ class Board():
                 self.drawCell(row, col, self.oddSquareColor if (col%2 == row%2) 
                               else self.evenSquareColor)
         drawLabel('Player 1', 
-                  100, 80, 
+                  100, 620, 
                   fill = 'black' if self.app.checkersGame.playerTurn==1 else 'dimGrey', 
                   align='left', 
                   size = 25 if self.app.checkersGame.playerTurn == 1 else 20, 
                   bold = True if self.app.checkersGame.playerTurn == 1 else False)
         drawLabel('Player 2' if app.aiGame==False else f'AI Bot Level {app.aiLevel}',
-                   100, 620, 
+                   100, 80, 
                    fill = 'black' if self.app.checkersGame.playerTurn == 2 else 'dimGrey', 
                    align='left', 
                    size = 25 if self.app.checkersGame.playerTurn == 2 else 20, 
@@ -241,26 +241,26 @@ class Board():
         if playerNum == 1:
             # if piece is not a king
             if not piece.king:
-                # check if downwardRightMove is valid
-                moves.update(self.downwardRightMove(row, col))
+                # check if upwardRightMove is valid
+                moves.update(self.upwardRightMove(row, col))
 
-                # check if downwardRightCapture is valid
-                futureMoves = self.downwardRightCapture(row, col, playerNum)
+                # check if upwardRightCapture is valid
+                futureMoves = self.upwardRightCapture(row, col, playerNum)
                 length = 0
                 # if the capture is valid, chain cpature until you cant anymore
                 while len(futureMoves) > length:
                     length = len(futureMoves)
-                    additionalDownwardCaptures(futureMoves, playerNum)
+                    additionalUpwardCaptures(futureMoves, playerNum)
                 moves.update(futureMoves)   
 
-                # check if downwardLeftMove is valid
-                moves.update(self.downwardLeftMove(row, col))
+                # check if upwardLeftMove is valid
+                moves.update(self.upwardLeftMove(row, col))
 
-                futureMoves = self.downwardLeftCapture(row, col, playerNum)
+                futureMoves = self.upwardLeftCapture(row, col, playerNum)
                 length = 0
                 while len(futureMoves) > length:
                     length = len(futureMoves)
-                    additionalDownwardCaptures(futureMoves, playerNum)
+                    additionalUpwardCaptures(futureMoves, playerNum)
                 moves.update(futureMoves)
 
             # if piece is a king
@@ -313,26 +313,26 @@ class Board():
         else:
             # if piece is not a king
             if not piece.king:
-                # check if upwardRightMove is valid
-                moves.update(self.upwardRightMove(row, col))
+                # check if downwardRightMove is valid
+                moves.update(self.downwardRightMove(row, col))
 
-                # check if upwardRightCapture is valid
-                futureMoves = self.upwardRightCapture(row, col, playerNum)
+                # check if downwardRightCapture is valid
+                futureMoves = self.downwardRightCapture(row, col, playerNum)
                 length = 0
                 while len(futureMoves) > length:
                     length = len(futureMoves)
-                    additionalUpwardCaptures(futureMoves, playerNum)
+                    additionalDownwardCaptures(futureMoves, playerNum)
                 moves.update(futureMoves)
 
-                # check if upwardLeftMove is valid
-                moves.update(self.upwardLeftMove(row, col))
+                # check if downwardLeftMove is valid
+                moves.update(self.downwardLeftMove(row, col))
 
-                # check if upwardLeftCapture is valid
-                futureMoves = self.upwardLeftCapture(row, col, playerNum)
+                # check if downwardLeftCapture is valid
+                futureMoves = self.downwardLeftCapture(row, col, playerNum)
                 length = 0
                 while len(futureMoves) > length:
                     length = len(futureMoves)
-                    additionalUpwardCaptures(futureMoves, playerNum)
+                    additionalDownwardCaptures(futureMoves, playerNum)
                 moves.update(futureMoves)
 
             # if piece is a king
@@ -419,7 +419,7 @@ class Board():
 
 
     def upwardLeftMove(self, row, col):
-        #if move is within board
+        # if move is within board
         if 0<=row-1<self.rows and 0<=col-1<self.cols:
             cellToMove = self.getPiece(row-1, col-1)
             # if cell is empty
@@ -442,7 +442,7 @@ class Board():
     
 
     def downwardRightMove(self, row, col):
-        #if move is within board
+        # if move is within board
         if 0<=row+1<self.rows and 0<=col+1<self.cols:
             cellToMove = self.getPiece(row+1, col+1)
             # if cell is empty
@@ -465,7 +465,7 @@ class Board():
     
 
     def upwardRightMove(self, row, col):
-        #if move is within board
+        # if move is within board
         if 0<=row-1<self.rows and 0<=col+1<self.cols:
             cellToMove = self.getPiece(row-1, col+1)
             # if cell is empty
