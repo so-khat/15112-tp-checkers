@@ -163,18 +163,27 @@ def onMousePress(app, mouseX, mouseY):
 
         # select an AI level
         if app.aiLevelSelection:
-            if 25<=mouseX<=225 and 350<=mouseY<=449:
+            # easy level
+            if 25<=mouseX<=174 and 300<=mouseY<=400:
                 app.aiLevel = 1
                 app.aiGame = True
                 app.aiLevelSelection = False
                 app.gameStarted = True
-            elif 250<=mouseX<=450 and 350<=mouseY<=449:
+            # medium level
+            elif 192<=mouseX<=341 and 300<=mouseY<=400:
                 app.aiLevel = 2
                 app.aiGame = True
                 app.aiLevelSelection = False
                 app.gameStarted = True
-            elif 475<=mouseX<=675 and 350<=mouseY<=449:
+            # hard level
+            elif 359<=mouseX<=508 and 300<=mouseY<=400:
                 app.aiLevel = 3
+                app.aiGame = True
+                app.aiLevelSelection = False
+                app.gameStarted = True
+            # expert level
+            elif 526<=mouseX<=675 and 300<=mouseY<=400:
+                app.aiLevel = 4
                 app.aiGame = True
                 app.aiLevelSelection = False
                 app.gameStarted = True

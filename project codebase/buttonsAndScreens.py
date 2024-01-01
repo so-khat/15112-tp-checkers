@@ -28,19 +28,23 @@ def startScreen(app):
 
 
 def aiLevelSelectionScreen():
-    drawLabel('Choose a difficulty level for your AI opponent:', 350, 200, size = 30)
+    drawLabel('Choose a difficulty level for your AI opponent:', 350, 200, size = 32)
     
     # draw Easy level box
-    drawRect(125, 400, 200, 100, fill='green', border='black', align='center')
-    drawLabel('Easy', 125, 400, size=15)
+    drawRect(99.5, 350, 149, 100, fill='green', border='black', align='center')
+    drawLabel('Easy', 99.5, 350, size=20)
 
     # draw Medium level box
-    drawRect(350, 400, 200, 100, fill='yellow', border='black', align='center')
-    drawLabel('Medium', 350, 400, size=15)
+    drawRect(266.5, 350, 149, 100, fill='yellow', border='black', align='center')
+    drawLabel('Medium', 266.5, 350, size=20)
 
     # draw Hard level box
-    drawRect(575, 400, 200, 100, fill='red', border='black', align='center')
-    drawLabel('Hard', 575, 400, size=15)
+    drawRect(433.5, 350, 149, 100, fill='orange', border='black', align='center')
+    drawLabel('Hard', 433.5, 350, size=20)
+
+    # draw Expert level box
+    drawRect(600.5, 350, 149, 100, fill='red', border='black', align='center')
+    drawLabel('Expert', 600.5, 350, size=20)
 
 
 def undoButton():
