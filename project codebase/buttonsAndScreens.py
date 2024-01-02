@@ -9,22 +9,60 @@ def startScreen(app):
               width=imageWidth/3, height=imageHeight/3, align='center')
 
     # draw Single Player Mode box
-    drawRect(200, 500, 250, 100, fill='green', border='black', align='center')
-    drawLabel('Single Player Mode', 200, 490, size = 25)
-    drawLabel('play against an AI bot', 200, 520, size = 15)
+    singlePlayerColor = gradient('lightSeaGreen', 'mediumSpringGreen', 'chartreuse', 
+                                 'mediumSpringGreen', 'lightSeaGreen', start='left')
+    singlePlayerFactor = 1 if not app.singlePlayerButtonHovered else 1.2
+    drawRect(200, 500, 250*singlePlayerFactor, 100*singlePlayerFactor, 
+             fill=singlePlayerColor, 
+             border='black', 
+             borderWidth = 2 if not app.singlePlayerButtonHovered else 3,
+             align='center')
+    drawLabel('Single Player Mode', 200, 490, 
+              size = 25 if not app.singlePlayerButtonHovered else 30, 
+              bold = False if not app.singlePlayerButtonHovered else True)
+    drawLabel('play against an AI bot', 200, 520, 
+              size = 15 if not app.singlePlayerButtonHovered else 18)
 
     # draw Multiplayer Mode box
-    drawRect(500, 500, 250, 100, fill='dodgerBlue', border='black', align='center')
-    drawLabel('Multiplayer Mode', 500, 490, size = 25)
-    drawLabel('play against your friends', 500, 520, size = 15)
+    multiplayerColor = gradient('dodgerBlue', 'royalBlue', 'deepSkyBlue', 
+                                 'royalBlue', 'dodgerBlue', start='left')
+    multiplayerFactor = 1 if not app.multiplayerButtonHovered else 1.2
+    drawRect(500, 500, 250*multiplayerFactor, 100*multiplayerFactor, 
+             fill=multiplayerColor, 
+             border='black', 
+             borderWidth = 2 if not app.multiplayerButtonHovered else 3,
+             align='center')
+    drawLabel('Multiplayer Mode', 500, 490, 
+              size = 25 if not app.multiplayerButtonHovered else 30, 
+              bold = False if not app.multiplayerButtonHovered else True)
+    drawLabel('play against your friends', 500, 520, 
+              size = 15 if not app.multiplayerButtonHovered else 18)
 
     # draw Rules box
-    drawRect(200, 600, 150, 50, fill='chocolate', border='black', align='center')
-    drawLabel('Rules & Info', 200, 600, size = 15)
+    rulesColor = gradient('brown', 'sienna', 'chocolate', 
+                          'sienna', 'brown', start='left')
+    rulesFactor = 1 if not app.rulesButtonHovered else 1.2
+    drawRect(200, 600, 150*rulesFactor, 50*rulesFactor, 
+             fill=rulesColor, 
+             border='black', 
+             borderWidth = 2 if not app.rulesButtonHovered else 3, 
+             align='center')
+    drawLabel('Rules & Info', 200, 600, 
+              size = 15 if not app.rulesButtonHovered else 18, 
+              bold = False if not app.rulesButtonHovered else True)
     
     # draw Themes box
-    drawRect(500, 600, 150, 50, fill='slateBlue', border='black', align='center')
-    drawLabel('Themes', 500, 600, size = 15)
+    themesColor = gradient('blueViolet', 'mediumOrchid', 'mediumSlateBlue', 
+                                 'mediumOrchid', 'blueViolet', start='left')
+    themesFactor = 1 if not app.themesButtonHovered else 1.2
+    drawRect(500, 600, 150*themesFactor, 50*themesFactor, 
+             fill=themesColor, 
+             border='black', 
+             borderWidth = 2 if not app.themesButtonHovered else 3,
+             align='center')
+    drawLabel('Themes', 500, 600, 
+              size = 15 if not app.themesButtonHovered else 18, 
+              bold = False if not app.themesButtonHovered else True)
 
 
 def aiLevelSelectionScreen():

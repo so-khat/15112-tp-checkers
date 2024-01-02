@@ -28,6 +28,11 @@ def onGameStart(app):
     app.homeButtonHovered = False
     app.volumeButtonHovered = False
     app.undoButtonHovered = False
+    app.multiplayerButtonHovered = False
+    app.singlePlayerButtonHovered = False
+    app.themesButtonHovered = False
+    app.rulesButtonHovered = False
+    app.newbieMode = True
 
     # citation: refered to Images section under More CMU Graphics 
     # in the cmu_graphics documentation 
@@ -84,7 +89,6 @@ def redrawAll(app):
     homeButton(app)
     volumeButton(app)
 
-
     if not app.gameStarted:
         if app.aiLevelSelection:
             aiLevelSelectionScreen()
@@ -139,6 +143,7 @@ def onMousePress(app, mouseX, mouseY):
         app.hintCell = None
         app.hintPieceCell = None
         app.homeButtonHovered = False
+        app.newbieMode = True
         app.checkersGame = Game(app)
         changeTheme(app)
 
@@ -243,17 +248,42 @@ def onMouseMove(app, mouseX, mouseY):
         app.homeButtonHovered = True
     else:
         app.homeButtonHovered = False
+
     # enlarge volume button when hovered over by mouse
     if 620<=mouseX<=680 and 20<=mouseY<=80:
         app.volumeButtonHovered = True
     else:
         app.volumeButtonHovered = False
+
     # enlarge undo button when hovered over by mouse
     if app.gameStarted and not app.gameOver:
         if 500<=mouseX<=600 and 610<=mouseY<=660:
             app.undoButtonHovered = True
         else:
             app.undoButtonHovered = False
+
+    # enlarge start screens buttons when hovered over by mouse
+    if not app.gameStarted:
+        # enlarge single player button when hovered over by mouse
+        if 75<=mouseX<=325 and 450<=mouseY<=550:
+            app.singlePlayerButtonHovered = True
+        else:
+            app.singlePlayerButtonHovered = False
+        # enlarge multiplayer button when hovered over by mouse
+        if 375<=mouseX<=625 and 450<=mouseY<=550:
+            app.multiplayerButtonHovered = True
+        else:
+            app.multiplayerButtonHovered = False
+        # enlarge themes button when hovered over by mouse
+        if 425<=mouseX<=575 and 575<=mouseY<=625:
+            app.themesButtonHovered = True
+        else:
+            app.themesButtonHovered = False
+        # enlarge rules button when hovered over by mouse
+        if 125<=mouseX<=275 and 575<=mouseY<=625:
+            app.rulesButtonHovered = True
+        else:
+            app.rulesButtonHovered = False
 
 
 def onKeyPress(app, key):

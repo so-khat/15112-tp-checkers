@@ -380,8 +380,24 @@ class Board():
                     length = len(futureMoves)
                     additionalKingCaptures(futureMoves, playerNum)
                 moves.update(futureMoves)
-        
-        return moves
+
+        # # if standard mode is being played, 
+        # # update moves to show only captures if captures are possible
+        # capturePossible = False
+        # if not app.newbieMode:
+        #     for jumpedOver in moves.values():
+        #         if jumpedOver != []:
+        #             print('capture moves available') #debugger
+        #             capturePossible = True
+        #             break
+        #     if capturePossible:
+        #         captureMoves = {}
+        #         for move in moves:
+        #             if moves[move] != []:
+        #                 captureMoves[move] = moves[move]
+        #         moves = captureMoves
+        # print(moves) #debugger
+        # return moves
 
 
     def gameWon(self, noAIMovesLeft=False):
