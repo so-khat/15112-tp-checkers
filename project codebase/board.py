@@ -397,7 +397,7 @@ class Board():
         #                 captureMoves[move] = moves[move]
         #         moves = captureMoves
         # print(moves) #debugger
-        # return moves
+        return moves
 
 
     def gameWon(self, noAIMovesLeft=False):
