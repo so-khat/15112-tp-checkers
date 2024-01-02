@@ -9,8 +9,8 @@ def startScreen(app):
               width=imageWidth/3, height=imageHeight/3, align='center')
 
     # draw Single Player Mode box
-    singlePlayerColor = gradient('lightSeaGreen', 'mediumSpringGreen', 'chartreuse', 
-                                 'mediumSpringGreen', 'lightSeaGreen', start='left')
+    singlePlayerColor = gradient('lightSeaGreen', 'mediumSpringGreen', 
+                                 'lightSeaGreen', start='left')
     singlePlayerFactor = 1 if not app.singlePlayerButtonHovered else 1.2
     drawRect(200, 500, 250*singlePlayerFactor, 100*singlePlayerFactor, 
              fill=singlePlayerColor, 
@@ -24,8 +24,8 @@ def startScreen(app):
               size = 15 if not app.singlePlayerButtonHovered else 18)
 
     # draw Multiplayer Mode box
-    multiplayerColor = gradient('dodgerBlue', 'royalBlue', 'deepSkyBlue', 
-                                 'royalBlue', 'dodgerBlue', start='left')
+    multiplayerColor = gradient('dodgerBlue', 'deepSkyBlue', 
+                                 'dodgerBlue', start='left')
     multiplayerFactor = 1 if not app.multiplayerButtonHovered else 1.2
     drawRect(500, 500, 250*multiplayerFactor, 100*multiplayerFactor, 
              fill=multiplayerColor, 
@@ -39,8 +39,8 @@ def startScreen(app):
               size = 15 if not app.multiplayerButtonHovered else 18)
 
     # draw Rules box
-    rulesColor = gradient('brown', 'sienna', 'chocolate', 
-                          'sienna', 'brown', start='left')
+    rulesColor = gradient('brown', 'chocolate', 
+                          'brown', start='left')
     rulesFactor = 1 if not app.rulesButtonHovered else 1.2
     drawRect(200, 600, 150*rulesFactor, 50*rulesFactor, 
              fill=rulesColor, 
@@ -48,12 +48,12 @@ def startScreen(app):
              borderWidth = 2 if not app.rulesButtonHovered else 3, 
              align='center')
     drawLabel('Rules & Info', 200, 600, 
-              size = 15 if not app.rulesButtonHovered else 18, 
+              size = 17 if not app.rulesButtonHovered else 20, 
               bold = False if not app.rulesButtonHovered else True)
     
     # draw Themes box
-    themesColor = gradient('blueViolet', 'mediumOrchid', 'mediumSlateBlue', 
-                                 'mediumOrchid', 'blueViolet', start='left')
+    themesColor = gradient('blueViolet', 'mediumSlateBlue', 
+                           'blueViolet', start='left')
     themesFactor = 1 if not app.themesButtonHovered else 1.2
     drawRect(500, 600, 150*themesFactor, 50*themesFactor, 
              fill=themesColor, 
@@ -61,7 +61,7 @@ def startScreen(app):
              borderWidth = 2 if not app.themesButtonHovered else 3,
              align='center')
     drawLabel('Themes', 500, 600, 
-              size = 15 if not app.themesButtonHovered else 18, 
+              size = 17 if not app.themesButtonHovered else 20, 
               bold = False if not app.themesButtonHovered else True)
 
 
