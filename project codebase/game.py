@@ -31,7 +31,7 @@ class Game:
     
 
     def selectMoveforSelectedPiece(self, row, col):
-        # if a piece is currently selected try to move it to the selected cell
+        # if a piece is currently selected, try to move it to the selected cell
         if self.selectedPiece != None:
             possibleMove = self.move(row, col)
             # if this move is valid, make the move
